@@ -28,7 +28,7 @@ RUN apt-get update && \
 
 WORKDIR /root
 
-RUN git clone https://github.com/MPI-SWS/genmc genmc-dev
+RUN git clone https://github.com/eupp/genmc-xmm genmc-dev
 RUN git clone https://github.com/eupp/genmc-xmm genmc-xmm
 RUN git clone https://github.com/eupp/genmc-xmm genmc-wkmo
 RUN git clone https://github.com/matteo-meluzzi/xmm-benchmarks xmm-benchmarks
