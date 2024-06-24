@@ -15,9 +15,11 @@ RUN apt-get update && \
     autoconf \
     automake \
     clang-15 \
+    libclang-15-dev \
     llvm-15 \
     llvm-15-dev \
     clang-12 \
+    libclang-12-dev \
     llvm-12 \
     llvm-12-dev \
     libffi-dev \
@@ -28,25 +30,25 @@ RUN apt-get update && \
 
 WORKDIR /root
 
-RUN git clone https://github.com/eupp/genmc-xmm genmc-dev
-RUN git clone https://github.com/eupp/genmc-xmm genmc-xmm
-RUN git clone https://github.com/eupp/genmc-xmm genmc-wkmo
+RUN git clone https://github.com/matteo-meluzzi/genmc-xmm-master-thesis genmc-dev
+RUN git clone https://github.com/matteo-meluzzi/genmc-xmm-master-thesis genmc-xmm
+RUN git clone https://github.com/matteo-meluzzi/genmc-xmm-master-thesis genmc-wkmo
 RUN git clone https://github.com/matteo-meluzzi/xmm-benchmarks xmm-benchmarks
 
 WORKDIR /root/genmc-dev
-RUN git checkout -b dev
+RUN git checkout genmc-dev
 RUN autoreconf --install
 RUN ./configure --with-llvm=/usr/lib/llvm-15
 RUN make
 
 WORKDIR /root/genmc-xmm
-RUN git checkout -b matteo
+RUN git checkout genmc-xmm
 RUN autoreconf --install
 RUN ./configure --with-llvm=/usr/lib/llvm-15
 RUN make
 
 WORKDIR /root/genmc-wkmo
-RUN git checkout -b wkmo
+RUN git checkout genmc-wkmo
 RUN autoreconf --install
 RUN ./configure --with-llvm=/usr/lib/llvm-12
 RUN make
