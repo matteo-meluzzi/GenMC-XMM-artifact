@@ -1,5 +1,5 @@
-# Use the latest Ubuntu image
-FROM ubuntu:latest
+# Use the jammy Ubuntu image
+FROM ubuntu:jammy
 
 # Set environment variables
 ENV DEBIAN_FRONTEND=noninteractive
